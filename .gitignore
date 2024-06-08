@@ -1,0 +1,5 @@
+bin/*
+
+# Ignore all css and js files in the public directory
+public/*.css
+public/*.js

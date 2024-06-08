@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS findings(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    source TEXT NOT NULL,
+    keyword TEXT NOT NULL,
+    content TEXT NOT NULL
+);
