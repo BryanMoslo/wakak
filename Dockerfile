@@ -17,4 +17,5 @@ WORKDIR /bin/
 COPY --from=builder /src/app/bin/app .
 COPY --from=builder /src/app/bin/db .
 
+EXPOSE 3000
 CMD /bin/app
