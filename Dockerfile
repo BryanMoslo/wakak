@@ -17,4 +17,5 @@ WORKDIR /bin/
 COPY --from=builder /src/app/bin/app .
 COPY --from=builder /src/app/bin/db .
 
-CMD /bin/app
+EXPOSE 3000
+CMD /bin/db migrate && /bin/app
