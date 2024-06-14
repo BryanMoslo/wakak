@@ -11,13 +11,82 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet" />
 </head>
-<body class="h-full flex flex-row min-h-full relative">
-    <section class="flex flex-col gap-4 min-h-full w-full" >
-        <main class="overflow-scroll min-h-full p-8 py-10 flex flex-col gap-5 bg-gray-100" x-data="">
-            <%= yield %>
-        </main>
-    </section>
+<body>
+    <div>
+        <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
+          <!-- Sidebar -->
+          <aside class="flex-shrink-0 hidden w-64 bg-white border-r dark:border-primary-darker dark:bg-darker md:block">
+            <div class="flex flex-col h-full">
+              <!-- Sidebar links -->
+              <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
+                <!-- DarkWeb links -->
+                <div>
+                  <a href="#" class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary">
+                    <span aria-hidden="true">
+                      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                      </svg>
+                    </span>
+                    <span class="ml-2 text-sm">DarkWeb</span>
+                  </a>
+                  <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="DarkWeb">
+                    <a href="/" role="menuitem" class="block p-2 text-sm text-gray-800 transition-colors duration-200 rounded-md hover:text-gray-700">Findings</a>
+                    <a href="#" role="menuitem" class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">Sources (soon)</a>
+                    <a href="#" role="menuitem" class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">Register Term (soon)</a>
+                  </div>
+                </div>
+  
+                <!-- Domains links -->
+                <div>
+                  <a href="#" class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary">
+                    <span aria-hidden="true">
+                      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                      </svg>
+                    </span>
+                    <span class="ml-2 text-sm">Domains</span>
+                  </a>
+                  <div class="mt-2 space-y-2 px-7" role="menu" arial-label="Domains">
+                    <a href="#" role="menuitem" class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">My Domains (soon)</a>
+                    <a href="#" role="menuitem" class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">Register (soon)</a>
+                    <a href="#" role="menuitem" class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">Settings (soon)</a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </aside>
+  
+          <div class="flex flex-col flex-1 min-h-screen overflow-x-hidden overflow-y-auto">
+            <!-- Navbar -->
+            <header class="relative flex-shrink-0 bg-white dark:bg-darker">
+              <div class="flex items-center justify-between p-2 border-b dark:border-primary-darker">
+                <!-- Brand -->
+                <a href="#" class="inline-block text-2xl font-bold tracking-wider text-primary-dark dark:text-light">🐸 Wakak</a>
+  
+                <!-- Desktop Right buttons -->
+                <nav aria-label="Secondary" class="hidden space-x-2 md:flex md:items-center">
+  
+                  <!-- User avatar button -->
+                  <div class="relative" x-data="{ open: false }">
+                    <button type="button" class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100">
+                      <img class="w-10 h-10 rounded-full" src="<%= assetPath(`/public/images/avatar.jpg`) %>" alt="Ahmed Kamel" />
+                    </button>
+                  </div>
+                </nav>
+              </div>
+            </header>
+  
+            <!-- Main content -->
+
+            <div class="flex flex-1 h-full p-4">
+              <main>
+                <%= yield %>
+              </main>
+            </div>
+          </div>
+        </div>
+    </div>
 </body>
 </html>
