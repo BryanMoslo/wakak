@@ -1,10 +1,10 @@
 package model
 
 type Term struct {
-	ID      int    `db:"id"`
-	Source  string `db:"source"`
-	Keyword string `db:"keyword"`
-	Content string `db:"content"`
+	ID      int    `db:"id" json:"-"`
+	Source  string `db:"source" json:"source"`
+	Keyword string `db:"keyword" json:"keyword"`
+	Content string `db:"content" json:"content"`
 }
 
 type TermsService interface {
