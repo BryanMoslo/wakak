@@ -1,4 +1,4 @@
-package home
+package terms
 
 import (
 	"net/http"
@@ -7,7 +7,7 @@ import (
 	"github.com/leapkit/core/render"
 )
 
-func Index(w http.ResponseWriter, r *http.Request) {
+func List(w http.ResponseWriter, r *http.Request) {
 	terms := r.Context().Value("terms").(model.TermsService)
 	findings, err := terms.All()
 	if err != nil {
@@ -17,7 +17,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	rw := render.FromCtx(r.Context())
 	rw.Set("findings", findings)
 
-	err = rw.Render("home/index.html")
+	err = rw.Render("terms/list.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}

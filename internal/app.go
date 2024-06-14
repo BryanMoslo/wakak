@@ -5,7 +5,6 @@ import (
 	"embed"
 	"os"
 
-	"wakak/internal/home"
 	"wakak/internal/terms"
 	"wakak/public"
 
@@ -76,7 +75,7 @@ func AddRoutes(r server.Router) error {
 	))
 
 	r.HandleFunc("POST /findings", terms.SaveFindings)
-	r.HandleFunc("GET /{$}", home.Index)
+	r.HandleFunc("GET /{$}", terms.List)
 
 	// Mounting the assets manager at the end of the routes
 	// so that it can serve the public assets.
