@@ -5,3 +5,4 @@ public/*.css
 public/*.js
 leapkit.db
 .DS_Store
+.env
