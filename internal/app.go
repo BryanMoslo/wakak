@@ -76,6 +76,8 @@ func AddRoutes(r server.Router) error {
 
 	r.HandleFunc("POST /findings", terms.SaveFindings)
 	r.HandleFunc("GET /{$}", terms.List)
+	r.HandleFunc("GET /terms/new/{$}", terms.New)
+	r.HandleFunc("POST /terms/register", terms.Create)
 
 	// Mounting the assets manager at the end of the routes
 	// so that it can serve the public assets.
