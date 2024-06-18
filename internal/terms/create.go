@@ -2,10 +2,12 @@ package terms
 
 import (
 	"bytes"
+	"cmp"
 	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 	"strings"
 	"wakak/internal/model"
 
@@ -88,7 +90,7 @@ func register(termReq model.TermRequest) (model.TermResponse, error) {
 
 	// Adding headers
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Authorization", "sss")
+	req.Header.Add("Authorization", cmp.Or(os.Getenv("QATTO_TOKEN"), "api_token"))
 
 	res, err := client.Do(req)
 	if err != nil {
