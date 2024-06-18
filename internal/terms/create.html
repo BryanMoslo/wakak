@@ -1,0 +1,14 @@
+<div class="flex justify-center items-center w-full h-full">
+    <div class="bg-white rounded-md border border-primary p-3 px-5 w-2/4">
+        <h2 class="text-2xl text-gray-800 font-semibold mb-3 mt-2">Register Term</h2>
+        <form class="flex flex-col items-start">
+            <input type="text" name="Terms" class="border border-stone-200 w-full rounded-md" placeholder="Symbol,Acme Inc,Security">
+            <div class="flex justify-between items-center w-full mb-3">
+                <div><small>Separate terms with comma</small></div>
+                <div id="message" class="text-red-600 flex flex-col"></div>
+            </div>
+
+            <button hx-post="/terms/register" hx-trigger="click" hx-target="#message" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Register</button>
+        </form>
+    </div>
+</div>
