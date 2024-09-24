@@ -74,7 +74,7 @@ func AddRoutes(r server.Router) error {
 		}),
 	))
 
-	r.HandleFunc("POST /findings", terms.SaveFindings)
+	r.HandleFunc("POST /findings/{domain}", terms.SaveFindings)
 	r.HandleFunc("GET /{$}", terms.List)
 	r.HandleFunc("GET /terms/new/{$}", terms.New)
 	r.HandleFunc("POST /terms/register", terms.Create)
