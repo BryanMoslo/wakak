@@ -1,8 +1,8 @@
 package terms
 
 import (
-	"fmt"
 	"io"
+	"log"
 	"net/http"
 )
 
@@ -14,7 +14,7 @@ func SaveFindings(w http.ResponseWriter, r *http.Request) {
 	}
 	defer r.Body.Close()
 
-	fmt.Println(string(body))
+	log.Printf("Received Body: %s", string(body))
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte("Body received"))
 }
